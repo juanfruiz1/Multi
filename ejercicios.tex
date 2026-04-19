@@ -1,0 +1,448 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\geometry{margin=2cm}
+%\usepackage{enumitem}
+%\usepackage{hyperref}
+
+\title{Ejercicios de Álgebra Lineal: Funcionales Lineales, Dualidad y Determinantes}
+\author{Compilado de Hoffman \& Kunze y Werner Greub}
+\date{\today}
+
+\newtheorem{problem}{Problema}
+\newenvironment{suggestion}{\par\noindent\textbf{Sugerencia: }}{}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\section*{Introducción}
+Esta colección reúne ejercicios seleccionados de las secciones sobre funcionales lineales, espacios duales, transformaciones transpuestas y funciones determinantes de los textos clásicos de Hoffman \& Kunze (\emph{Linear Algebra}) y Werner Greub (\emph{Linear Algebra}). Cada ejercicio incluye una sugerencia breve para orientar su resolución. Los ejercicios están organizados por temas y nivel de dificultad, proporcionando una herramienta útil para el estudio y práctica del álgebra lineal avanzada.
+
+\section{Ejercicios de Hoffman \& Kunze: Capítulo 3}
+
+\subsection{Sección 3.5: Funcionales Lineales}
+
+\begin{problem}
+En $\mathbb{R}^3$, sean $\alpha_1 = (1,0,1)$, $\alpha_2 = (0,1,-2)$, $\alpha_3 = (-1,-1,0)$.
+\begin{enumerate}
+\item Si $f$ es un funcional lineal en $\mathbb{R}^3$ tal que $f(\alpha_1)=1$, $f(\alpha_2)=-1$, $f(\alpha_3)=3$, y si $\alpha = (a,b,c)$, hallar $f(\alpha)$.
+\item Describir explícitamente un funcional lineal $f$ en $\mathbb{R}^3$ tal que $f(\alpha_1)=f(\alpha_2)=0$ pero $f(\alpha_3)\neq 0$.
+\item Sea $f$ cualquier funcional lineal tal que $f(\alpha_1)=f(\alpha_2)=0$ y $f(\alpha_3)\neq 0$. Probar que $\{\alpha_1,\alpha_2\}$ es una base de $\ker f$.
+\end{enumerate}
+\end{problem}
+\begin{suggestion}
+Exprese $\alpha$ como combinación lineal de $\alpha_1,\alpha_2,\alpha_3$ usando eliminación gaussiana.
+\end{suggestion}
+
+\begin{problem}
+Sea $\mathcal{B}=\{\alpha_1,\alpha_2,\alpha_3\}$ la base de $\mathbb{C}^3$ definida por
+\[
+\alpha_1=(1,0,-1),\quad \alpha_2=(1,1,1),\quad \alpha_3=(2,2,0).
+\]
+Hallar la base dual de $\mathcal{B}$.
+\end{problem}
+\begin{suggestion}
+Recuerde que la base dual $\{f_1,f_2,f_3\}$ debe satisfacer $f_i(\alpha_j)=\delta_{ij}$.
+\end{suggestion}
+
+\begin{problem}
+Si $A$ y $B$ son matrices $n\times n$ sobre el campo $F$, demostrar que $\operatorname{tr}(AB)=\operatorname{tr}(BA)$. Concluir que matrices similares tienen la misma traza.
+\end{problem}
+\begin{suggestion}
+Escriba las entradas de $AB$ y $BA$ y compare las sumas de los elementos diagonales.
+\end{suggestion}
+
+\begin{problem}
+Sea $V$ el espacio vectorial de todas las funciones polinomiales $p:\mathbb{R}\to\mathbb{R}$ de grado menor o igual a 2:
+\[
+p(x)=c_0+c_1x+c_2x^2.
+\]
+Definir tres funcionales lineales en $V$ por
+\[
+f_1(p)=\int_0^1 p(x)\,dx,\quad f_2(p)=\int_0^2 p(x)\,dx,\quad f_3(p)=\int_0^{-1} p(x)\,dx.
+\]
+Demostrar que $\{f_1,f_2,f_3\}$ es una base de $V^*$ exhibiendo la base de $V$ de la cual es dual.
+\end{problem}
+\begin{suggestion}
+Encuentre polinomios $p_1,p_2,p_3$ en $V$ tales que $f_i(p_j)=\delta_{ij}$.
+\end{suggestion}
+
+\begin{problem}
+Si $A$ y $B$ son matrices $n\times n$ complejas, demostrar que $AB-BA=I$ es imposible.
+\end{problem}
+\begin{suggestion}
+Considere la traza de ambos lados.
+\end{suggestion}
+
+\begin{problem}
+Sean $m$ y $n$ enteros positivos y $F$ un campo. Sean $f_1,\dots,f_m$ funcionales lineales en $F^n$. Para $\alpha\in F^n$ defina
+\[
+T\alpha = (f_1(\alpha),\dots,f_m(\alpha)).
+\]
+Demostrar que $T$ es una transformación lineal de $F^n$ en $F^m$. Luego demostrar que toda transformación lineal de $F^n$ en $F^m$ es de esta forma, para ciertos $f_1,\dots,f_m$.
+\end{problem}
+\begin{suggestion}
+Para la segunda parte, defina $f_i$ como la composición de la transformación con la proyección en la i-ésima coordenada.
+\end{suggestion}
+
+\begin{problem}
+Sean $\alpha_1=(1,0,-1,2)$ y $\alpha_2=(2,3,1,1)$, y sea $W$ el subespacio de $\mathbb{R}^4$ generado por $\alpha_1$ y $\alpha_2$. ¿Qué funcionales lineales $f(x_1,x_2,x_3,x_4)=c_1x_1+c_2x_2+c_3x_3+c_4x_4$ pertenecen al anulador de $W$?
+\end{problem}
+\begin{suggestion}
+Un funcional $f$ aniquila $W$ si y solo si $f(\alpha_1)=0$ y $f(\alpha_2)=0$.
+\end{suggestion}
+
+\begin{problem}
+Sea $W$ el subespacio de $\mathbb{R}^5$ generado por los vectores
+\begin{align*}
+\alpha_1 &= \epsilon_1+2\epsilon_2+3\epsilon_3+4\epsilon_4+\epsilon_5, \\
+\alpha_2 &= \epsilon_2+3\epsilon_3+4\epsilon_4+\epsilon_5, \\
+\alpha_3 &= \epsilon_1+4\epsilon_2+6\epsilon_3+4\epsilon_4+\epsilon_5.
+\end{align*}
+Hallar una base para $W^0$ (el anulador de $W$).
+\end{problem}
+\begin{suggestion}
+Resuelva el sistema homogéneo determinado por las condiciones $f(\alpha_i)=0$ para $i=1,2,3$.
+\end{suggestion}
+
+\begin{problem}
+Sea $V$ el espacio vectorial de todas las matrices $2\times 2$ sobre los números reales, y sea
+\[
+B=\begin{pmatrix}1&0\\-1&-1\end{pmatrix}.
+\]
+Sea $W$ el subespacio de $V$ formado por todas las matrices $A$ tales que $AB=0$. Sea $f$ un funcional lineal en $V$ que está en el anulador de $W$. Suponga que $f(I)=0$ y $f(C)=3$, donde $I$ es la matriz identidad $2\times 2$ y
+\[
+C=\begin{pmatrix}0&0\\0&1\end{pmatrix}.
+\]
+Hallar $f(B)$.
+\end{problem}
+\begin{suggestion}
+Exprese $B$ como combinación lineal de $I$, $C$ y matrices en $W$.
+\end{suggestion}
+
+\begin{problem}
+Sea $F$ un subcuerpo de los números complejos. Definimos $n$ funcionales lineales
+\[
+f_k(x_1,\dots,x_n)=\sum_{j=1}^n (k-j)x_j,\qquad 1\leq k\leq n.
+\]
+¿Cuál es la dimensión del subespacio aniquilado por $f_1,\dots,f_n$?
+\end{problem}
+\begin{suggestion}
+Considere la matriz $n\times n$ cuyas filas son los coeficientes de los $f_k$.
+\end{suggestion}
+
+\begin{problem}
+Sean $W_1$ y $W_2$ subespacios de un espacio vectorial de dimensión finita $V$.
+\begin{enumerate}
+\item Probar que $(W_1+W_2)^0=W_1^0\cap W_2^0$.
+\item Probar que $(W_1\cap W_2)^0=W_1^0+W_2^0$.
+\end{enumerate}
+\end{problem}
+\begin{suggestion}
+Para (a), muestre que un funcional aniquila $W_1+W_2$ si y solo si aniquila tanto $W_1$ como $W_2$.
+\end{suggestion}
+
+\begin{problem}
+Sea $V$ un espacio vectorial de dimensión finita sobre el campo $F$ y sea $W$ un subespacio de $V$. Si $f$ es un funcional lineal en $W$, probar que existe un funcional lineal $g$ en $V$ tal que $g(\alpha)=f(\alpha)$ para cada $\alpha$ en el subespacio $W$.
+\end{problem}
+\begin{suggestion}
+Extienda una base de $W$ a una base de $V$ y defina $g$ arbitrariamente en los vectores añadidos.
+\end{suggestion}
+
+\begin{problem}
+Sea $F$ un subcuerpo del campo de los números complejos y sea $V$ cualquier espacio vectorial sobre $F$. Suponga que $f$ y $g$ son funcionales lineales en $V$ tales que la función $h$ definida por $h(\alpha)=f(\alpha)g(\alpha)$ también es un funcional lineal en $V$. Probar que $f=0$ o $g=0$.
+\end{problem}
+\begin{suggestion}
+Considere $h(\alpha+\beta)$ y use la linealidad de $f$, $g$ y $h$.
+\end{suggestion}
+
+\begin{problem}
+Sea $F$ un campo de característica cero y sea $V$ un espacio vectorial de dimensión finita sobre $F$. Si $\alpha_1,\dots,\alpha_m$ son finitos vectores en $V$, todos distintos del vector cero, probar que existe un funcional lineal $f$ en $V$ tal que $f(\alpha_i)\neq 0$ para $i=1,\dots,m$.
+\end{problem}
+\begin{suggestion}
+Use inducción sobre $m$ y el hecho de que la unión de un número finito de subespacios propios no puede ser todo $V$ si $F$ es infinito.
+\end{suggestion}
+
+\begin{problem}
+De acuerdo con el Ejercicio 3, matrices similares tienen la misma traza. Así podemos definir la traza de un operador lineal en un espacio de dimensión finita como la traza de cualquier matriz que represente al operador en una base ordenada. Esto está bien definido porque todas las matrices que representan a un operador son similares.
+
+Ahora sea $V$ el espacio de todas las matrices $2\times 2$ sobre el campo $F$ y sea $P$ una matriz $2\times 2$ fija. Sea $T$ el operador lineal en $V$ definido por $T(A)=PA$. Demostrar que $\operatorname{tr}(T)=2\operatorname{tr}(P)$.
+\end{problem}
+\begin{suggestion}
+Calcule la matriz de $T$ respecto a una base conveniente de $V$ (por ejemplo, las matrices unitarias $E_{ij}$).
+\end{suggestion}
+
+\begin{problem}
+Demostrar que el funcional traza en matrices $n\times n$ es único en el siguiente sentido. Si $W$ es el espacio de matrices $n\times n$ sobre el campo $F$ y si $f$ es un funcional lineal en $W$ tal que $f(AB)=f(BA)$ para cada $A$ y $B$ en $W$, entonces $f$ es un múltiplo escalar de la función traza. Si, además, $f(I)=n$, entonces $f$ es la función traza.
+\end{problem}
+\begin{suggestion}
+Considere las matrices elementales $E_{ij}$ y sus productos.
+\end{suggestion}
+
+\begin{problem}
+Sea $W$ el espacio de matrices $n\times n$ sobre el campo $F$, y sea $W_0$ el subespacio generado por las matrices $C$ de la forma $C=AB-BA$. Probar que $W_0$ es exactamente el subespacio de matrices de traza cero. (Indicación: ¿Cuál es la dimensión del espacio de matrices de traza cero? Use las ``unidades matriciales'', es decir, matrices con exactamente una entrada no nula, para construir suficientes matrices linealmente independientes de la forma $AB-BA$.)
+\end{problem}
+\begin{suggestion}
+Note que $\dim W_0 = n^2-1$ porque la traza es un funcional lineal no nulo cuyo núcleo contiene a $W_0$.
+\end{suggestion}
+
+\subsection{Sección 3.6: El Doble Dual}
+
+\begin{problem}
+Sea $V$ un espacio vectorial de dimensión finita sobre el campo $F$. Probar que la aplicación $\alpha\mapsto L_\alpha$, donde $L_\alpha(f)=f(\alpha)$ para $f\in V^*$, es un isomorfismo de $V$ sobre $V^{**}$.
+\end{problem}
+\begin{suggestion}
+Demuestre que es lineal, inyectiva y use dimensiones.
+\end{suggestion}
+
+\begin{problem}
+Sea $V$ un espacio vectorial de dimensión finita sobre el campo $F$. Para cada vector $\alpha\in V$ defina $L_\alpha:V^*\to F$ mediante $L_\alpha(f)=f(\alpha)$. Demuestre que la correspondencia $\alpha\mapsto L_\alpha$ es un isomorfismo de $V$ en $V^{**}$.
+\end{problem}
+\begin{suggestion}
+Demuestre que es lineal, inyectiva y use que $\dim V = \dim V^{**}$.
+\end{suggestion}
+
+\section{Ejercicios de Hoffman \& Kunze: Capítulo 5}
+
+\subsection{Sección 5.2: Funciones Determinante}
+
+\begin{problem}
+Sea $F$ un campo y $n$ un entero positivo. Una función $D$ de las matrices $n\times n$ sobre $F$ en $F$ se llama \emph{función determinante $n$-lineal alternada} si:
+\begin{enumerate}
+\item Para cada $i$, $D$ es lineal como función de la $i$-ésima fila cuando las otras filas se mantienen fijas.
+\item Si dos filas adyacentes de $A$ son iguales, entonces $D(A)=0$.
+\end{enumerate}
+Demuestre que si $D$ satisface estas condiciones, entonces $D(A)=0$ cuando $A$ tiene dos filas iguales (no necesariamente adyacentes).
+\end{problem}
+\begin{suggestion}
+Use la propiedad de alternancia y permutaciones de filas.
+\end{suggestion}
+
+\begin{problem}
+Sea $D$ una función $n$-lineal alternada sobre las matrices $n\times n$ sobre $F$. Demuestre que si se suma un múltiplo de una fila a otra fila, el valor de $D$ no cambia.
+\end{problem}
+\begin{suggestion}
+Use la linealidad en la fila que se modifica y la propiedad de anulación cuando hay filas iguales.
+\end{suggestion}
+
+\begin{problem}
+Demuestre que la función determinante está unívocamente determinada por las propiedades de ser $n$-lineal, alternada y satisfacer $D(I)=1$.
+\end{problem}
+\begin{suggestion}
+Muestre que cualquier función con estas propiedades debe coincidir con la fórmula del determinante por expansión de Laplace.
+\end{suggestion}
+
+\subsection{Sección 5.3: Permutaciones y la Unicidad de los Determinantes}
+
+\begin{problem}
+Demuestre que el signo de una permutación $\sigma$ puede definirse como $(-1)^{\text{número de inversiones de }\sigma}$ y que esta definición coincide con $\operatorname{sgn}(\sigma)=\prod_{i<j}\frac{\sigma(j)-\sigma(i)}{j-i}$.
+\end{problem}
+\begin{suggestion}
+Considere cómo cambia el signo cuando se intercambian dos elementos adyacentes.
+\end{suggestion}
+
+\begin{problem}
+Demuestre que para cualquier permutación $\sigma$ de $\{1,\dots,n\}$, se tiene $\operatorname{sgn}(\sigma)=\operatorname{sgn}(\sigma^{-1})$.
+\end{problem}
+\begin{suggestion}
+Use la definición del signo como producto de diferencias.
+\end{suggestion}
+
+\begin{problem}
+Demuestre que el determinante de una matriz $A$ puede expresarse como
+\[
+\det A = \sum_{\sigma\in S_n} \operatorname{sgn}(\sigma) a_{1\sigma(1)}a_{2\sigma(2)}\cdots a_{n\sigma(n)}.
+\]
+\end{problem}
+\begin{suggestion}
+Muestre que esta fórmula satisface las propiedades que caracterizan al determinante.
+\end{suggestion}
+
+\subsection{Sección 5.4: Propiedades Adicionales de los Determinantes}
+
+\begin{problem}
+Demuestre que $\det(AB)=\det(A)\det(B)$ para matrices $n\times n$ $A$ y $B$.
+\end{problem}
+\begin{suggestion}
+Fije $B$ y considere la función $D(A)=\det(AB)/\det(B)$ (para $\det(B)\neq 0$).
+\end{suggestion}
+
+\begin{problem}
+Demuestre que una matriz $A$ es invertible si y solo si $\det(A)\neq 0$.
+\end{problem}
+\begin{suggestion}
+Use la fórmula $A\cdot\operatorname{adj}(A)=\det(A)I$.
+\end{suggestion}
+
+\begin{problem}
+Demuestre la fórmula de Cramer: Si $A$ es invertible y $Ax=b$, entonces $x_i=\det(A_i)/\det(A)$, donde $A_i$ es la matriz obtenida reemplazando la $i$-ésima columna de $A$ por $b$.
+\end{problem}
+\begin{suggestion}
+Considere la matriz obtenida reemplazando la $i$-ésima columna de $A$ por $b$ y use propiedades del determinante.
+\end{suggestion}
+
+\section{Ejercicios de Werner Greub: Capítulo IV (Determinantes)}
+
+\subsection{Sección 1: Funciones Determinante}
+
+\begin{problem}
+Sean $E^*, E$ un par de espacios duales y $\Delta\neq 0$ una función determinante en $E$. Definir la función $\Delta^*$ de $n$ vectores en $E^*$ como sigue:
+\begin{itemize}
+\item Si los vectores $x^{*1},\dots,x^{*n}$ son linealmente dependientes, entonces $\Delta^*(x^{*1},\dots,x^{*n})=0$.
+\item Si los vectores $x^{*1},\dots,x^{*n}$ son linealmente independientes, entonces $\Delta^*(x^{*1},\dots,x^{*n})=\Delta(x_1,\dots,x_n)^{-1}$, donde $\{x_1,\dots,x_n\}$ es la base dual de $\{x^{*1},\dots,x^{*n}\}$.
+\end{itemize}
+Probar que $\Delta^*$ es una función determinante en $E^*$.
+\end{problem}
+\begin{suggestion}
+Verifique que $\Delta^*$ es $n$-lineal alternada y no idénticamente cero.
+\end{suggestion}
+
+\subsection{Sección 2: El Determinante de una Transformación Lineal}
+
+\begin{problem}
+Sea $\varphi:E\to E$ una transformación lineal definida por $\varphi(e_v)=\lambda_v e_v$ ($v=1,\dots,n$), donde $\{e_1,\dots,e_n\}$ es una base de $E$. Demuestre que $\det\varphi = \lambda_1\cdots\lambda_n$.
+\end{problem}
+\begin{suggestion}
+Exprese la matriz de $\varphi$ en la base dada y calcule su determinante.
+\end{suggestion}
+
+\begin{problem}
+Sea $\varphi:E\to E$ una transformación lineal y suponga que $E_1$ es un subespacio estable (i.e., $\varphi(E_1)\subseteq E_1$). Considere las transformaciones inducidas $\varphi_1:E_1\to E_1$ y $\bar\varphi:E/E_1\to E/E_1$. Demuestre que
+\[
+\det\varphi = \det\varphi_1 \cdot \det\bar\varphi.
+\]
+\end{problem}
+\begin{suggestion}
+Elija una base de $E$ que comience con una base de $E_1$ y complete con representantes de una base de $E/E_1$.
+\end{suggestion}
+
+\begin{problem}
+Sea $\lambda:E\to F$ un isomorfismo lineal y $\varphi$ una transformación lineal de $E$. Demuestre que
+\[
+\det(\lambda\circ\varphi\circ\lambda^{-1}) = \det\varphi.
+\]
+\end{problem}
+\begin{suggestion}
+Recuerde que el determinante de una transformación lineal es el determinante de su matriz en cualquier base, y que matrices semejantes tienen el mismo determinante.
+\end{suggestion}
+
+\begin{problem}
+Sea $E$ un espacio vectorial de dimensión $n$ y considere el espacio $\mathcal{L}(E;E)$ de transformaciones lineales.
+\begin{enumerate}
+\item Suponga que $F:\mathcal{L}(E;E)\to\Gamma$ es una función que satisface
+\[
+F(\psi\circ\varphi) = F(\psi)F(\varphi) \quad \text{y} \quad F(\operatorname{id}_E)=1.
+\]
+Demuestre que $F(\varphi)=\det\varphi$ para toda $\varphi$.
+\item Demuestre que la función $\det:\mathcal{L}(E;E)\to\Gamma$ es la única función que satisface $\det(\psi\circ\varphi)=\det\psi\cdot\det\varphi$ y $\det(\operatorname{id}_E)=1$.
+\end{enumerate}
+\end{problem}
+\begin{suggestion}
+Para (a), utilice que toda transformación lineal se puede expresar como producto de transformaciones elementales. Para (b), aplique (a).
+\end{suggestion}
+
+\subsection{Sección 3: El Determinante de una Matriz}
+
+\begin{problem}
+Sea $A=(a_{ij})$ una matriz $n\times n$ sobre un campo $F$. Demuestre que el determinante de $A$ puede calcularse mediante la fórmula de Leibniz:
+\[
+\det A = \sum_{\sigma\in S_n} \operatorname{sgn}(\sigma) \prod_{i=1}^n a_{i,\sigma(i)}.
+\]
+\end{problem}
+\begin{suggestion}
+Verifique que esta fórmula satisface las propiedades que definen una función determinante.
+\end{suggestion}
+
+\begin{problem}
+Demuestre que el determinante de una matriz triangular (superior o inferior) es el producto de los elementos de su diagonal.
+\end{problem}
+\begin{suggestion}
+Use la definición del determinante por expansión de cofactores o la fórmula de Leibniz.
+\end{suggestion}
+
+\begin{problem}
+Sea $A$ una matriz $n\times n$. Demuestre que $\det(A^T)=\det(A)$.
+\end{problem}
+\begin{suggestion}
+Use la fórmula de Leibniz y propiedades de las permutaciones.
+\end{suggestion}
+
+\subsection{Sección 4: Funciones Determinante Duales}
+
+\begin{problem}
+Sean $E$ y $E^*$ espacios duales y $\Delta$ una función determinante en $E$. Para una base $\{e_1,\dots,e_n\}$ de $E$, definimos $\Delta(e_1,\dots,e_n)=1$. Demuestre que la función determinante dual $\Delta^*$ en $E^*$ satisface $\Delta^*(e^1,\dots,e^n)=1$, donde $\{e^1,\dots,e^n\}$ es la base dual.
+\end{problem}
+\begin{suggestion}
+Use la definición de función determinante dual y propiedades de bases duales.
+\end{suggestion}
+
+\begin{problem}
+Sea $\varphi:E\to E$ una transformación lineal con matriz $A$ respecto a una base $\{e_1,\dots,e_n\}$. Sea $\varphi^*:E^*\to E^*$ la transformación transpuesta. Demuestre que $\det(\varphi^*)=\det(\varphi)$.
+\end{problem}
+\begin{suggestion}
+Relacione las matrices de $\varphi$ y $\varphi^*$ en bases duales.
+\end{suggestion}
+
+\subsection{Sección 5: La Matriz Adjunta}
+
+\begin{problem}
+Sea $A$ una matriz $n\times n$. La matriz adjunta (o adjugada) $\operatorname{adj}(A)$ tiene como entrada $(i,j)$ el cofactor $(-1)^{i+j}\det(A_{ji})$, donde $A_{ji}$ es la submatriz obtenida eliminando la fila $j$ y columna $i$. Demuestre que $A\cdot\operatorname{adj}(A)=\det(A)I$.
+\end{problem}
+\begin{suggestion}
+Calcule el producto elemento por elemento usando expansión de determinantes.
+\end{suggestion}
+
+\begin{problem}
+Use la propiedad $A\cdot\operatorname{adj}(A)=\det(A)I$ para demostrar la regla de Cramer para resolver sistemas lineales.
+\end{problem}
+\begin{suggestion}
+Multiplique ambos lados de $Ax=b$ por $\operatorname{adj}(A)$.
+\end{suggestion}
+
+\begin{problem}
+Demuestre que si $A$ es invertible, entonces $\operatorname{adj}(A^{-1})=(\operatorname{adj}(A))^{-1}$.
+\end{problem}
+\begin{suggestion}
+Use propiedades de la matriz adjunta y la inversa.
+\end{suggestion}
+
+\section{Ejercicios de Werner Greub: Capítulo II, §5 (Espacios Vectoriales Duales)}
+
+\begin{problem}
+Sea $V$ un espacio vectorial de dimensión finita sobre un campo $F$. Demuestre que la aplicación $\alpha\mapsto L_\alpha$, donde $L_\alpha(f)=f(\alpha)$ para $f\in V^*$, es un isomorfismo canónico de $V$ en $V^{**}$.
+\end{problem}
+\begin{suggestion}
+Demuestre que es lineal, inyectiva y use dimensiones.
+\end{suggestion}
+
+\begin{problem}
+Sea $W$ un subespacio de $V$. Demuestre que el anulador $W^0=\{f\in V^*: f(w)=0 \text{ para todo } w\in W\}$ es un subespacio de $V^*$ de dimensión $\dim V - \dim W$.
+\end{problem}
+\begin{suggestion}
+Extienda una base de $W$ a una base de $V$ y examine los funcionales lineales correspondientes.
+\end{suggestion}
+
+\begin{problem}
+Sean $W_1$ y $W_2$ subespacios de $V$. Demuestre que $(W_1+W_2)^0 = W_1^0 \cap W_2^0$ y $(W_1\cap W_2)^0 = W_1^0 + W_2^0$.
+\end{problem}
+\begin{suggestion}
+Para la primera igualdad, muestre que un funcional aniquila $W_1+W_2$ si y solo si aniquila tanto $W_1$ como $W_2$.
+\end{suggestion}
+
+\section*{Conclusión}
+
+Esta colección de ejercicios cubre temas fundamentales de álgebra lineal relacionados con funcionales lineales, dualidad y determinantes. Los ejercicios están diseñados para profundizar en la comprensión de estos conceptos y desarrollar habilidades en demostraciones matemáticas. Se recomienda intentar resolver cada ejercicio usando primero la sugerencia proporcionada, y luego consultar las referencias originales (Hoffman \& Kunze, Greub) para soluciones detalladas y contexto teórico adicional.
+
+\vspace{0.5cm}
+\noindent\textbf{Referencias}
+\begin{enumerate}
+\item Hoffman, K., \& Kunze, R. (1971). \emph{Linear Algebra} (2nd ed.). Prentice-Hall.
+\item Greub, W. (1975). \emph{Linear Algebra} (4th ed.). Springer-Verlag.
+\end{enumerate}
+
+\end{document}
